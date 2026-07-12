@@ -1,5 +1,35 @@
 # AssetFlow - Enterprise Asset & Resource Management System
 
+## Environment Variables
+
+Create a `.env.local` file at the root of your project and add the following variables. **Never commit `.env.local` to version control.**
+
+### Where to get these values:
+
+1. **NEXT_PUBLIC_SUPABASE_URL** & **NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY**
+   - Go to your Supabase Project → Settings → API
+   - Copy the "Project URL" as `NEXT_PUBLIC_SUPABASE_URL`
+   - Copy the "anon public" key as `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+
+2. **SUPABASE_SECRET_KEY**
+   - In the same Supabase API settings page, copy the "service_role" key
+   - ⚠️ **Important**: Keep this secret! Never expose it in frontend code.
+
+3. **OPENAI_API_KEY**
+   - Go to [OpenAI Platform](https://platform.openai.com/api-keys)
+   - Create a new API key and copy it here
+
+### Example .env.local:
+```env
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your-publishable-key
+SUPABASE_SECRET_KEY=your-service-role-key
+
+# OpenAI API Key (for AI Assistant)
+OPENAI_API_KEY=sk-your-openai-api-key
+```
+
 ## Getting Started
 
 ### Prerequisites
@@ -13,8 +43,11 @@
    ```
 
 2. Set up environment variables:
-   - Copy `.env.example` to `.env.local`
-   - Fill in your Supabase and OpenAI credentials
+   - Copy `.env.example` to `.env.local`:
+     ```bash
+     cp .env.example .env.local
+     ```
+   - Fill in all required values in `.env.local`
 
 3. Run the development server:
    ```bash
